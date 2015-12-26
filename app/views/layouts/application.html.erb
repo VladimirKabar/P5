@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>P5</title>
+  <title><%= yield(:title) %> | Ruby on Rails Tutorial Sample App</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<%= link_to "Użytkownicy", users_path %>
+<%= link_to "Posty", microposts_path %>
+<%= link_to "Powrót", 'javascript:history.go(-1);' %>
+<%= link_to "Root", root_path %>
+<%= link_to "Help", static_pages_help_path %>
+<%= link_to "About", static_pages_about_path %>
+
 
 <%= yield %>
 
