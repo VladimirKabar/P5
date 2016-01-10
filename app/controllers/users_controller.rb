@@ -13,6 +13,17 @@ class UsersController < ApplicationController
     # debugger
   end
 
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      flash[:success] = "Welcome to the Winer App"
+      redirect_to @user
+      # redirect_to user_url(@user)
+      #handle a save
+    else
+      render 'new'
+    end
+  end
   def destroy
     @user.destroy
     respond_to do |format|
@@ -23,8 +34,11 @@ class UsersController < ApplicationController
 
   private
 
-  def set_user
+    def set_user
     @user = User.find(params[:id])
-  end
+    end
 
+    def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
 end
