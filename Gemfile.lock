@@ -177,8 +177,8 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   minitest-reporters
-  pg (= 0.17.1)
-  puma (= 2.11.1)
+  pg
+  puma
   rails (= 4.2.5)
   rails_12factor (= 0.0.2)
   sass-rails (~> 5.0)
