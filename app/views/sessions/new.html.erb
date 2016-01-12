@@ -1,4 +1,4 @@
-<% provide(:title, "Log in")%>
+<% provide(:title, "Log in") %>
 <h1>Log in</h1>
 
 <div class="row">
@@ -7,10 +7,16 @@
 
 
         <%= f.label :email %>
-        <%= f.text_field :email, class: 'form-control'%>
+        <%= f.text_field :email, class: 'form-control' %>
 
         <%= f.label :password %>
-        <%= f.password_field :password , class: 'form-control'%>
+        <%= f.password_field :password, class: 'form-control' %>
+
+        <%= f.label :remember_me, class: "check_box inline" do %>
+            <%= f.check_box :remember_me %>
+            <span>Remember me on this computer </span>
+        <% end %>
+
 
 
         <%= f.submit "Log into account", class: "btn btn-primary" %>
