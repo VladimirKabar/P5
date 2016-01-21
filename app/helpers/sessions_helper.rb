@@ -12,6 +12,11 @@ module SessionsHelper
     # to samo co wyzej^ => session[:user_id] = { value: user.id, expires: 20.years.from_now.utc } #tworzy encrypted temp cookies
   end
 
+  # Returns true if the given user is the current user.
+  def current_user?(user)
+    user == current_user
+  end
+
   #Returns the current logged-in user
   def current_user
     #@current_user = @current_user || User.find_by(id: session[:user_id]) to samo nizej
@@ -45,5 +50,16 @@ module SessionsHelper
     forget(current_user)
     session.delete(:user_id)
     @current_user = nil
+  end
+
+  # Redirects to stored location (or the default)
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
+  # Stores the URL trying to be accessed
+  def store_location
+    session[:forwarding_url] = request.url if request.get?
   end
 end
