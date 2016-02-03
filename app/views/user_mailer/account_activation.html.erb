@@ -1,0 +1,4 @@
+<h1>TwojTwitter</h1>
+Witaj <%= @user.name %>
+
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token, email: @user.email) %>

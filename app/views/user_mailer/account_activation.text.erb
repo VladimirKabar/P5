@@ -1,0 +1,5 @@
+Hi <%= User.name %>,
+
+Witaj na aplikacji TwojTwitter! Kliknij ponizej aby aktywowac konto:
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
