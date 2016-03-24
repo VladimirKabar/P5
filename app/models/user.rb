@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  # attr_accessor :password, password_confimation -> has_secured password to robi juz
+  has_many :microposts, dependent:  :destroy
+    # attr_accessor :password, password_confimation -> has_secured password to robi juz
   attr_accessor :remember_token, :activation_token, :reset_token #reset token virtual atribute, jest ustawiony kiedy digest jest ustawiony
   before_save :downcase_email
   before_create :create_activation_digest
@@ -12,7 +13,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
 
-  has_many :microposts
+
 
 
   # Returns the hash digest of the given string.
@@ -69,6 +70,13 @@ class User < ActiveRecord::Base
   # Returns true if a password reset has expired
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
+  end
+
+  # Defines a proto-feed.
+  # See "follwoing users" for the full implemenation.
+
+  def feed
+    Micropost.where("user_id = ?", id) # unika sql injection
   end
 
   private

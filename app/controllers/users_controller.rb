@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :destroy, :edit, :update]
+#  before_action :set_user, only: [:show, :destroy, :edit, :update, :index]
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
@@ -17,8 +17,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @user = User.find(params[:id])
-    # debugger
+    @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])
   end
 
   def update
@@ -45,12 +45,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
-    flash[:success] = "user deleted"
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    User.find(params[:id]).destroy
+    flash[:success] = "User deleted"
+    redirect_to users_url
   end
 
   private
@@ -64,20 +61,13 @@ class UsersController < ApplicationController
   end
 
   #before filters
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger] = "Nie jestes zalogowany, zaloguj sie!"
-      redirect_to login_url
-    end
-  end
 
   def correct_user
     @user = User.find(params[:id])
     redirect_to(root_url) unless current_user?(@user)
   end
 
-  # Define admin privilages
+  # Define admin privileges
   def admin_user
     redirect_to(root_url) unless current_user.admin?
   end

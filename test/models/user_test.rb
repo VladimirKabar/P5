@@ -64,4 +64,12 @@ class UserTest < ActiveSupport::TestCase
   test "authenticated? should return false a user with nil digest" do
     assert_not @user.authenticated?(:remember,'')
   end
+
+  test "associated microposts should be destoroyed" do
+    @user.save # bo w tescie nierobi to w bazie danych
+    @user.microposts.create!(content: "Lorem Ipsum" ) #jak jest bang to wtedy podnosi error?
+    assert_difference 'Micropost.count', -1 do
+      @user.destroy
+    end
+  end
 end

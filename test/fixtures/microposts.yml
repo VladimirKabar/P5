@@ -1,9 +1,51 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  content: MyText
-  user_id: 1
+orange:
+  content: "I just ate an orange"
+  created_at: <%= 10.minutes.ago %>
+  user: michael
 
-two:
-  content: MyText
-  user_id: 1
+tau_manifesto:
+  content: "I just ate an orange"
+  created_at: <%= 3.years.ago %>
+  user: michael
+
+cat_video:
+  content: "http://youtu.be/PKffm2uI4dk"
+  created_at: <%= 2.hours.ago %>
+  user: michael
+
+
+most_recent:
+  content: "Writing a short test"
+  created_at: <%= Time.zone.now %>
+  user: michael
+
+<% 50.times do |n| %>
+micropost_<%= n %>:
+  content: <%= "Faker::Lorem.sentence(5)" %>
+  created_at: <%= 42.days.ago %>
+  user: michael
+<% end %>
+
+ants:
+  content: "Oh, is that what you want? Because that's how you get ants!"
+  created_at: <%= 2.years.ago %>
+  user: archer
+
+zone:
+  content: "Danger zone"
+  created_at: <%= 9.years.ago %>
+  user: archer
+
+tone:
+  content: "Oh fuck you!"
+  created_at: <%= 21.years.ago %>
+  user: archer
+
+van:
+  content: "Oh fuck you too vaaannn!"
+  created_at: <%= 21.years.ago %>
+  user: archer
+
+
