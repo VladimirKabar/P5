@@ -1,5 +1,10 @@
 class User < ActiveRecord::Base
-  has_many :microposts, dependent:  :destroy
+  has_many :microposts, dependent:  :destroy #tu nie trzeba podac foreign_key bo domyslnie bierze go z klasy user - w tym wypadku user.id
+  has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # bo jak sie niszczy usera to trzeba zniszczyc relacje
+  has_many :following, through:  :active_relationships , source: :followed
+  has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  has_many :followers, through: :passive_relationships, source: :follower
+
     # attr_accessor :password, password_confimation -> has_secured password to robi juz
   attr_accessor :remember_token, :activation_token, :reset_token #reset token virtual atribute, jest ustawiony kiedy digest jest ustawiony
   before_save :downcase_email
@@ -74,11 +79,28 @@ class User < ActiveRecord::Base
 
   # Defines a proto-feed.
   # See "follwoing users" for the full implemenation.
-
+  # Return a user's status feed.
   def feed
-    Micropost.where("user_id = ?", id) # unika sql injection
+    # Micropost.where("user_id = ?", id) # unika sql injection
+    following_ids_subselect = "SELECT followed_id FROM relationships WHERE follower_id = :user_id"
+    Micropost.where("user_id IN (#{following_ids_subselect}) OR user_id = :user_id", user_id: id)
   end
 
+  # Follows a user.
+  def follow(other_user)
+    active_relationships.create(followed_id: other_user.id)
+  end
+
+  # Unfollows a user.
+  def unfollow(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+  # Returns true if the current user is following the other user.
+  def following?(other_user)
+    self.following.include?(other_user) #mozna uzyc bez self
+    # !active_relationships.find_by(followed_id: other_user.id).nil? to samo co wyzej
+  end
   private
 
   # Converts email to all lower-case

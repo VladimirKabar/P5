@@ -163,10 +163,11 @@ aside {
       padding-left: 0;
       border: 0;
     }
-    &:hover {
-      text-decoration: none;
-      color: blue;
-    }
+    //&:hover {
+    //  text-decoration: none;
+    //  //color: blue;
+    //  color: $gray-darker;
+    //}
   }
   strong {
     display: block;
