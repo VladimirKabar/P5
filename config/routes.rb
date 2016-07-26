@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   get 'about' => 'static_pages#about'
   get 'help' => 'static_pages#help'
   get 'contact' => 'static_pages#contact'
-  post 'javascript' => 'static_pages#javascript'
-  get 'javascript' => 'static_pages#javascript'
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
+  get 'porownanie' => 'javascript#porownanie'
+  get 'slajdowisko' => 'javascript#slajdowisko'
+  get 'szubienica' => 'javascript#szubienica'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 

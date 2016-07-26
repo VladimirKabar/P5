@@ -1,14 +1,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700&subset=latin,latin-ext);
 
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
 
 @mixin box_sizing {
-  -moz-box-sizing:    border-box;
+  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
+  box-sizing: border-box;
 }
 
 /* universal */
@@ -31,7 +32,6 @@ textarea {
     margin-bottom: 60px;
   }
 }
-
 
 /* typography */
 
@@ -163,11 +163,11 @@ aside {
       padding-left: 0;
       border: 0;
     }
-    //&:hover {
-    //  text-decoration: none;
-    //  //color: blue;
-    //  color: $gray-darker;
-    //}
+    &:hover {
+      text-decoration: none;
+      //color: blue;
+      color: $gray-darker;
+    }
   }
   strong {
     display: block;
@@ -273,6 +273,70 @@ input {
     margin-right: 10px;
     margin-top: 5px;
   }
+}
+
+// Szubienica
+
+.szubienica {
+
+  background-color: #000000;
+  color: lightgray;
+  font-size: 14px;
+  font-family: 'Inconsolata';
+  font-weight: 700;
+
+  #pojemnik {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+
+  #plansza {
+    width: 100%;
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: center;
+    font-size: 48px;
+    min-height: 60px;
+
+  }
+
+  #szubienica {
+    float: left;
+    width: 50%;
+    text-align: center;
+    min-height: 280px;
+
+  }
+
+  #alfabet {
+    float: left;
+    width: 50%;
+    text-align: center;
+    min-height: 280px;
+
+  }
+
+  .litera {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px;
+    margin: 5px;
+    border: 3px solid gray;
+    float: left;
+    cursor: pointer;
+    border-radius: 9px;
+  }
+
+  .litera:hover {
+    background-color: #222222;
+    color: white;
+    border: 3px solid white;
+  }
+
 }
 
 aside {

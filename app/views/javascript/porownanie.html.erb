@@ -1,0 +1,26 @@
+<% provide(:title, "Javascript") %>
+
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <%= text_field_tag(:pole) %>
+    <%= submit_tag("Szukaj", {:onclick => 'sprawdz();', class: "btn btn-primary"}) %>
+
+    <div id="wynik"></div>
+
+    <p></p>
+    <p></p>
+
+    <%= text_field_tag(:pole1) %>
+    <%= text_field_tag(:pole2) %>
+    <%= submit_tag("Szukaj", {:onclick => 'petla();', class: "btn btn-primary"}) %>
+
+    <div id="if"></div>
+    <div id="petlax"></div>
+    <div id="petla1"></div>
+    <div id="petla2"></div>
+
+    <div id="petla"></div>
+  </div>
+  <div class="col-md-4"></div>
+</div>
