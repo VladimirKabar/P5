@@ -2,7 +2,10 @@ var haslo = "Bez pracy nie ma kołaczy".toUpperCase();
 var haslo1 = "";
 var dlugosc = haslo.length;
 var ile_bledow = 0;
+var litery = ["a", "ą", "b", "c", "ć", "d", "e", "ę", "f", "g", "h", "i", "j", "k", "l", "ł", "m", "n",
+    "ń", "o", "ó", "p", "q", "r", "s", "ś", "t", "u", "v", "w", "x", "y", "z", "ź", "ż"];
 
+window.onload = start;
 
 for (var i = 0; i < dlugosc; i++) {
     //if (haslo[i]==" ") haslo1 = haslo1 + " ";
@@ -18,12 +21,6 @@ function wypisz_haslo() {
         document.getElementById(nazwa).innerHTML = value;
     }
 }
-
-window.onload = start;
-
-
-var litery = ["a", "ą", "b", "c", "ć", "d", "e", "ę", "f", "g", "h", "i", "j", "k", "l", "ł", "m", "n", "ń", "o", "ó", "p", "q", "r", "s", "ś", "t", "u", "v", "w", "x", "y", "z", "ź", "ż"];
-
 
 function start() {
     var nazwa = "alfabet";
