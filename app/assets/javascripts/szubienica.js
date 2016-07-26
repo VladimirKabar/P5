@@ -84,7 +84,7 @@ function sprawdz(arg) {
         //pudlo z literka
         ile_bledow++;
         var nazwa1 = "szubienica";
-        var obraz = "/assets/img/s" + ile_bledow + ".jpg";
+        var obraz = "/images/img/s" + ile_bledow + ".jpg";
         //var obraz = "<%= image_tag(\"img/s"+ile_bledow+".jpg\") %>";
 
 
