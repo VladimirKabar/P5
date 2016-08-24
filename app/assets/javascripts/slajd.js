@@ -2,16 +2,16 @@
  * Created by vladimir on 19.07.16.
  */
 var numer = Math.floor(Math.random() * 5 + 1);
-var myVar1 = setTimeout("slajd()",5000);
-var myVar2 = setTimeout("schowaj()",4500);
+var myVar1 = setTimeout("slajd()", 5000);
+var myVar2 = setTimeout("schowaj()", 4500);
 
-function ustawslajd(nrslajdu){
+function ustawslajd(nrslajdu) {
     zegarOFF();
 
-    numer = nrslajdu-1;
+    numer = nrslajdu - 1;
 
     schowaj();
-    setTimeout("slajd()",500);
+    setTimeout("slajd()", 500);
 
 }
 function schowaj() {
@@ -31,7 +31,7 @@ function slajd() {
     var value = plik;
 
     var elem = document.getElementById(nazwa);
-    if(typeof elem !== 'undefined' && elem !== null) {
+    if (typeof elem !== 'undefined' && elem !== null) {
         zegarOFF();
         document.getElementById(nazwa).innerHTML = value;
 
@@ -40,8 +40,11 @@ function slajd() {
 }
 
 function zegarON() {
-    myVar1 = setTimeout("slajd()",5000);
-    myVar2 = setTimeout("schowaj()",4500);
+    myVar1 = setTimeout("slajd()", 5000);
+    //console.log("dupa dziala");
+    myVar2 = setTimeout("schowaj()", 4500);
+    //console.log("dupa nie dziala");
+
 }
 
 function zegarOFF() {

@@ -3,13 +3,10 @@
 <div class="row">
   <div class="col-md-4"></div>
   <div class="col-md-4">
-    <%= text_field_tag(:pole) %>
-    <%= submit_tag("Szukaj", {:onclick => 'sprawdz();', class: "btn btn-primary"}) %>
 
-    <div id="wynik"></div>
 
-    <p></p>
-    <p></p>
+
+
 
     <%= text_field_tag(:pole1) %>
     <%= text_field_tag(:pole2) %>
@@ -21,6 +18,13 @@
     <div id="petla2"></div>
 
     <div id="petla"></div>
+    <p></p>
+    <p></p>
+
+    <%= text_field_tag(:pole) %>
+    <%= submit_tag("Szukaj", {:onclick => 'testuj();', class: "btn btn-primary"}) %>
+    <div id="kupa"></div>
+
   </div>
   <div class="col-md-4"></div>
 </div>

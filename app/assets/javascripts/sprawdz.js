@@ -1,6 +1,6 @@
-function sprawdz() {
+function testuj() {
     var liczba = document.getElementById("pole").value;
-    if (liczba > 0) document.getElementById("wynik").innerHTML = "dodatnia";
-    else if (liczba < 0) document.getElementById("wynik").innerHTML = "ujemna";
-    else document.getElementById("wynik").innerHTML = "zero";
+    if (liczba > 0) document.getElementById("kupa").innerHTML = "dodatnia";
+    else if (liczba < 0) document.getElementById("kupa").innerHTML = "ujemna";
+    else document.getElementById("kupa").innerHTML = "zero";
 }

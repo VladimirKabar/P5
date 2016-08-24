@@ -10,4 +10,8 @@ class JavascriptController < ApplicationController
   def szubienica
 
   end
+
+  def inne
+
+  end
 end

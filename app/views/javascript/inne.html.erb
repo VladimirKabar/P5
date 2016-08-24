@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <script type="text/javascript" charset="utf-8">
+      document.write(0.1 * 5);
+      document.write("<br />");
+      document.write(0.15 * 3);
+      document.write("<br />");
+      document.write(0.1 * 0.2);
+      document.write("<br />");
+
+      var x;
+
+      x = Math.round((0.1 + 0.2) * 10) / 10;
+      document.write(x + "<br />");
+
+      x = 0.15 * 3;
+      x = x.toFixed(2);
+      document.write(x + "<br />");
+
+      x = 0.105;
+      x = x.toFixed(2);
+      document.write(x + "<br />");
+
+      Number.prototype.round = function (miejsc) {
+        return +(Math.round(this + "e+" + miejsc) + "e-" + miejsc);
+      };
+
+      x = 0.105;
+      x = x.round(2);
+      document.write(x + "<br />");
+
+      var pln = 1000;
+      document.write("wplata : " + pln + " PLN <br /> <br />");
+      var usd = pln / 4.00835701;
+      usd = Math.floor(usd * 100) / 100;
+      document.write("saldo : " + usd + " Dolarow <br /> <br />");
+      //Zakupy
+
+      zakupy = 23.99;
+      document.write("zakupy : " + zakupy + " dolarow <br / > <br / >");
+
+      var prowizja = 0.02 * zakupy;
+      prowizja = Math.ceil(prowizja * 100) / 100;
+      document.write("Prowizja za zakupy : " + prowizja + " dolarow <br / > <br / >");
+
+      //Saldo po zakupach
+
+      saldo = --prowizja - zakupy;
+      document.write("Saldo po  zakupach : " + saldo + " dolarow <br / > <br / >");
+      usd = 225.99;
+
+      usd = Math.trunc(usd);
+      document.write(usd);
+
+
+    </script>
+  </div>
+  <div class="col-md-4"></div>
+</div>

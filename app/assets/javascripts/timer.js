@@ -21,7 +21,7 @@ function odliczanie() {
 
     var elem = document.getElementById(nazwa);
     if (typeof elem !== 'undefined' && elem !== null) {
-        zegarOFF()
+        zegarOFF();
         document.getElementById(nazwa).innerHTML = value;
     }
     zegarON();

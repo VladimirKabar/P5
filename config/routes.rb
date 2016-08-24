@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'porownanie' => 'javascript#porownanie'
   get 'slajdowisko' => 'javascript#slajdowisko'
   get 'szubienica' => 'javascript#szubienica'
+  get 'inne'=> 'javascript#inne'
+  get 'zdjecia' => 'javascript#zdjecia'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
